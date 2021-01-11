@@ -6,30 +6,46 @@ $route['generate_menu'] = 'admin/Main/generate_menu';
 
 $route['admin-dashboard'] = 'admin/Dashboard';
 
+
+// Data Master
+	// Kriteria
 $route['master/manajemen-kriteria'] = 'admin/Kriteria';
 $route['getDataKriteria'] = 'admin/Kriteria/getData';
 $route['simpanDataKriteria/(:any)'] = 'admin/Kriteria/simpan/$1';
 $route['getKodeKriteria'] = 'admin/Kriteria/getKodeKriteria';
 $route['getKriteriaById'] = 'admin/Kriteria/getKriteriaById';
 $route['delKriteria'] = 'admin/Kriteria/delete';
+	// Alternatif
+$route['master/manajemen-alternatif'] = 'admin/Alternatif';
+$route['getDataAlternatif'] = 'admin/Alternatif/getData';
+$route['simpanDataAlternatif/(:any)'] = 'admin/Alternatif/simpan/$1';
+$route['getKodeAlternatif'] = 'admin/Alternatif/getKodeAlternatif';
+$route['delAlternatif'] = 'admin/Alternatif/delete';
+$route['getAlternatifById'] = 'admin/Alternatif/getAlternatifById';
+
 
 $route['kriteria/manajemen-nilai-kriteria'] = 'admin/Kriteria/nilaiKriteria';
 $route['updateNilai/(:any)'] = 'admin/Kriteria/updateNilai/$1';
 $route['getJumlah'] = 'admin/Kriteria/getJumlah';
 
-$route['master/manajemen-alternatif'] = 'admin/Alternatif';
-$route['getDataAlternatif'] = 'admin/Alternatif/getData';
-$route['delAlternatif'] = 'admin/Alternatif/delete';
 
 $route['master/manajemen-nilai-alternatif'] = 'admin/Alternatif/nilai_alternatif';
 $route['updateNilaiAlternatif'] = 'admin/Alternatif/updateNilaiAlternatif';
-$route['getKodeAlternatif'] = 'admin/Alternatif/getKodeAlternatif';
-$route['simpanDataAlternatif/(:any)'] = 'admin/Alternatif/simpan/$1';
 
 
-$route['normalisasi-alternatif'] = 'admin/Normalisasi';
 
-$route['perankingan'] = 'admin/Perankingan';
+
+// SAW
+$route['saw/normalisasi'] = 'admin/Normalisasi';
+$route['LoadHasilNormalisasi'] = 'admin/Normalisasi/LoadHasilNormalisasi';
+$route['saw/perankingan'] = 'admin/Perankingan';
+
+// WP
+$route['wp/normalisasi'] = 'admin/Normalisasi/wp';
+$route['wp/perankingan'] = 'admin/Perankingan/wp';
+$route['LoadNormalisasiS'] = 'admin/Normalisasi/LoadNormalisasiS';
+$route['LoadNormalisasiV'] = 'admin/Normalisasi/LoadNormalisasiV';
+
 
 
 $route['menu/manajemen-menu'] = 'admin/Menu/manajemen';

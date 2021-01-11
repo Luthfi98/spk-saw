@@ -129,9 +129,17 @@ class Kriteria extends CI_Controller {
 	// 					}
 	public function delete()
 	{
-		$id = $this->input->post('id_kriteria');
-		$this->M_Kriteria->deleteKriteria($id);
-		echo json_encode(['status' => true, 'alert' => 'Dihapus']);
+
+		$id = $this->input->post('id');
+		if ($id) {
+			$this->M_Kriteria->deleteKriteria($id);
+			echo json_encode(['status' => true, 'alert' => 'Dihapus']);
+		}else{
+			$this->db->truncate('nilai_alternatif');
+			$this->db->truncate('ranking');
+			$this->db->truncate('kriteria');
+			echo json_encode(['status' => true, 'alert' => 'Dikosongkan']);
+		}
 	}
 
 

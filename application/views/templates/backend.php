@@ -9,7 +9,7 @@
     <meta name="description" content="bootstrap material admin template">
     <meta name="author" content="">
     
-    <title>App || <?= $title ?></title>
+    <title>App-SPK || <?= $title ?></title>
     
     <link rel="apple-touch-icon" href="<?= base_url('assets') ?>/images/apple-touch-icon.png">
     <link rel="shortcut icon" href="<?= base_url('assets') ?>/images/favicon.ico">
@@ -133,8 +133,9 @@
           <i class="icon md-more" aria-hidden="true"></i>
         </button>
         <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-          <img class="navbar-brand-logo" src="<?= base_url() ?>/assets/images/logo.png" title="Remark">
-          <span class="navbar-brand-text hidden-xs-down"> Remark</span>
+          <span class="navbar-brand-logo">SPK</span>
+          <!-- <img class="navbar-brand-logo" src="<?= base_url() ?>/assets/images/logo.png" title="Remark"> -->
+          <span class="navbar-brand-text hidden-xs-down"> Sistem Pendukung</span>
         </div>
         <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
           data-toggle="collapse">
@@ -606,9 +607,9 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-      <div class="site-footer-legal">© 2018 <a href="http://themeforest.net/item/remark-responsive-bootstrap-admin-template/11989202">Remark</a></div>
+      <div class="site-footer-legal">© <?= date('Y') ?> <a href="https://app/">Sistem Pendukung Keputusan</a></div>
       <div class="site-footer-right">
-        Crafted with <i class="red-600 icon md-favorite"></i> by <a href="https://themeforest.net/user/creation-studio">Creation Studio</a>
+        Template <i class="red-600 icon md-favorite"></i> by <a href="https://themeforest.net/user/creation-studio">Creation Studio</a>
       </div>
     </footer>
  

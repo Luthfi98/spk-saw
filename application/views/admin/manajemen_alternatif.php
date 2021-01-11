@@ -124,6 +124,10 @@
                 url:base+'delAlternatif',
                 type:'POST',
                 dataType:'JSON',
+                beforeSend:function()
+                {
+                  alertInfo('please wait')
+                },
                 success:function(response)
                 {
                   dt.ajax.reload();
@@ -133,6 +137,36 @@
           }
         });
 
+  }
+
+  function ButtonEdit(id_alternatif)
+  {
+      status ='edit';
+      $('.btn-simpan').attr('disabled', false)
+      clearAlert()    
+      $('#form')[0].reset(); // reset form on modals
+      $('.text-danger').empty()
+      $.ajax({
+        url:base+"getAlternatifById",
+        type:"POST",
+        data:{
+          id_alternatif : id_alternatif
+        },
+        dataType:"JSON",
+        beforeSend:function()
+        {
+          alertInfo('please wait')
+        },
+        success:function(response)
+        {
+
+          $('#id_alternatif').val(response.id)
+          $('#alternatif').val(response.nama_alternatif)
+          $('#kode_alternatif').val(response.kode_alternatif)
+          $('#modal-form').modal('show').removeClass('modal-3d-flip-horizontal').addClass('modal-3d-sign');
+          $('.modal-title').text('Ubah Alternatif');
+        }
+      });
   }
 
   function ButtonDelete(id)
@@ -155,6 +189,10 @@
                 id : id
               },
               dataType:'JSON',
+              beforeSend:function()
+              {
+                alertInfo('please wait')
+              },
               success:function(response)
               {
                 dt.ajax.reload();
@@ -185,6 +223,10 @@
           data:$('#form').serialize(),
           dataType:'JSON',
           type:'POST',
+          beforeSend:function()
+          {
+            alertInfo('please wait')
+          },
           success:function(response)
           {
 

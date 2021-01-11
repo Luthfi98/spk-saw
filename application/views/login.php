@@ -9,7 +9,7 @@
     <meta name="description" content="bootstrap material admin template">
     <meta name="author" content="">
     
-    <title>App || Login</title>
+    <title>App-SPK || Login</title>
     
     <link rel="apple-touch-icon" href="<?= base_url('assets') ?>/images/apple-touch-icon.png">
     <link rel="shortcut icon" href="<?= base_url('assets') ?>/images/favicon.ico">
@@ -73,7 +73,7 @@
             </div>
             <form id="form">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="username" id="username" />
+                <input type="text" class="form-control" autofocus="true" name="username" id="username" />
                 <label class="floating-label">Username</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">

@@ -11,7 +11,8 @@
           <th width="20%">Nama Kriteria</th>
           <th width="5%">Bobot</th>
           <th width="5%">Jenis Kriteria</th>
-          <th width="3%">Aksi
+          <th width="3%">
+            <button type="button" onclick="DelAll()"  class="btn btn-xs btn-danger"><i class="fa fa-times"></i></button>
           </th>
             <!-- <button type="button" onclick="ButtonAdd()" class="btn btn-xs btn-primary"><i class="fa fa-plus"></i></button> -->
         </tr>
@@ -67,7 +68,13 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-
+<!-- Site Action -->
+    <div class="site-action" >
+      <button type="button" onclick="ButtonAdd()" class="site-action-toggle btn-sm btn-raised btn btn-primary btn-floating">
+        <i class="icon md-plus" aria-hidden="true"></i>
+      </button>
+    </div>
+    <!-- End Site Action -->
 
 <script>
   $(document).ready(function(){
@@ -241,5 +248,34 @@
             })
           }
         });
+  }
+
+  function DelAll()
+  {
+
+    swal({
+          title: "Apakah anda Yakin Ingin Mengosongkan Table Alternatif?",
+          text: "",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonClass: "btn-primary",
+          confirmButtonText: 'Yakin?',
+          closeOnConfirm: false,
+          closeOnCancel: true
+        }, function (isConfirm) {
+          if (isConfirm) {
+             $.ajax({
+                url:base+'delKriteria',
+                type:'POST',
+                dataType:'JSON',
+                success:function(response)
+                {
+                  dt.ajax.reload();
+                  alertSuccess('Data Kriteria Berhasil '+response.alert)
+                }
+              })
+          }
+        });
+
   }
 </script>

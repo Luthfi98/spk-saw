@@ -11,6 +11,7 @@ class M_Main extends CI_Model {
 		$this->db->join('previlege_jabatan', 'previlege_jabatan.id_menu=menu.id_menu');
 		$this->db->where('previlege_jabatan.id_jabatan', $id_jabatan);
 		$this->db->where('menu.main_menu', $main_menu);
+		$this->db->where('menu.id_menu !=', 8);
 		$this->db->order_by('menu.posisi', 'ASC');
 		$query = $this->db->get()->result_array();
 		return $query;

@@ -24,7 +24,7 @@
   float: none;
   margin-right: 0;
   overflow: hidden;
-  font-family: "Roboto", sans-serif;
+  font-family: "Proxima Nova";
   color: #fff;
   text-align: center;
   text-overflow: ellipsis;
@@ -94,7 +94,7 @@ body {
   width: 260px;
   height: 100%;
   height: calc(100% - 66.01px);
-  font-family: "Roboto", sans-serif;
+  font-family: "Proxima Nova";
   color: rgba(117, 117, 117, .9);
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
@@ -218,7 +218,7 @@ body {
 .site-menu-arrow {
   position: relative;
   display: inline-block;
-  font-family: "Material Design Iconic";
+  font-family: "Proxima Nova";
   font-style: normal;
   font-weight: normal;
   transform: translate(0, 0);
@@ -393,7 +393,7 @@ body.site-gridmenu-active {
   top: -1px;
   right: -3px;
   display: inline-block;
-  font-family: "Material Design Iconic";
+  font-family: "Proxima Nova";
   font-size: 1rem;
   font-style: normal;
   font-weight: normal;
@@ -1922,7 +1922,7 @@ body.site-navbar-small {
 }
 
 .checkbox-custom input[type="checkbox"]:checked + label::after, .checkbox-custom input[type="checkbox"]:checked + input[type="hidden"] + label::after, .checkbox-custom input[type="radio"]:checked + label::after, .checkbox-custom input[type="radio"]:checked + input[type="hidden"] + label::after {
-  font-family: "Material Design Iconic";
+  font-family: "Proxima Nova";
   content: "";
 }
 
@@ -9040,7 +9040,7 @@ ul.panel-actions > li:first-child {
   position: absolute;
   top: 15px;
   right: 30px;
-  font-family: "Material Design Iconic";
+  font-family: "Proxima Nova";
   transition: all 300ms linear 0s;
 }
 
@@ -11606,7 +11606,7 @@ ul.panel-actions > li:first-child {
 .color-selector > li label {
   position: relative;
   margin-bottom: .4rem;
-  font-family: "Material Design Iconic";
+  font-family: "Proxima Nova";
   font-style: normal;
   font-weight: normal;
   font-variant: normal;

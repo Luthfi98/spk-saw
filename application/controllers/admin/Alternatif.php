@@ -15,6 +15,12 @@ class Alternatif extends CI_Controller {
 		$this->template->load('templates/backend', 'admin/manajemen_alternatif', $data);
 	}
 
+	function getAlternatifById()
+	{
+		$alternatif = $this->db->get_where('alternatif', ['id' => $this->input->post('id_alternatif')])->row();
+		echo json_encode($alternatif);
+	}
+
 	function getKodeAlternatif()
 	{
 		$alternatif = $this->db->order_by('kode_alternatif', 'DESC')->get('alternatif')->row();
@@ -40,8 +46,8 @@ class Alternatif extends CI_Controller {
 			$row[] = $krt->nama_alternatif;
 			$row[] = '
 			<a class="btn btn-xs btn-warning" href="javascript:void(0)" title="Ubah" onclick="ButtonEdit('."'".$krt->id."'".')"><i class="fa fa-edit"></i></a>
-			<a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="ButtonDelete('."'".$krt->id."'".')"><i class="fa fa-trash"></i></a>
 			';
+			// <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="ButtonDelete('."'".$krt->id."'".')"><i class="fa fa-trash"></i></a>
 			$data[] = $row;
 		}
 
@@ -97,6 +103,8 @@ class Alternatif extends CI_Controller {
 				// }
 				echo json_encode(['sukses' => true, 'alert'=> 'Ditambahkan']);
 			}else{
+				$this->M_Alternatif->editAlternatif($data, $id);
+				echo json_encode(['sukses' => true, 'alert'=> 'Diperbarui']);
 
 			}
 
@@ -110,6 +118,7 @@ class Alternatif extends CI_Controller {
 			$this->M_Alternatif->deleteAlternatif($id);
 			echo json_encode(['status' => true, 'alert' => 'Dihapus']);
 		}else{
+			$this->db->truncate('ranking');
 			$this->db->truncate('nilai_alternatif');
 			$this->db->truncate('alternatif');
 			echo json_encode(['status' => true, 'alert' => 'Dikosongkan']);
@@ -123,7 +132,12 @@ class Alternatif extends CI_Controller {
 		$alternatif = $this->db->order_by('id', 'ASC')->get('alternatif');
 		$nilai = $this->db->order_by('baris', 'ASC')->get('nilai_alternatif')->result();
 		// var_dump($nilai);die;
-		$data = ['title' => 'Nilai Alternatif', 'kriteria' => $kriteria, 'nilai' => $nilai, 'alternatif' => $alternatif];
+		$data = [
+			'title' => 'Nilai Alternatif', 
+			'kriteria' => $kriteria, 
+			'nilai' => $nilai, 
+			'alternatif' => $alternatif
+		];
 		$this->template->load('templates/backend', 'admin/manajemen_nilai_alternatif', $data);
 	}
 
