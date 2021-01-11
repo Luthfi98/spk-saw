@@ -73,11 +73,11 @@
           <table width="100%" class="table">
             <thead>
               <tr>
-                <td nowrap="true">V<sub>i</sub></td>
-                <td nowrap="true">Alternatif</td>
-                <td nowrap="true">Nilai</td>
-                <td nowrap="true">Hasil</td>
-                <td nowrap="true"><i class="fa fa-trophy"></i></td>
+                <th nowrap="true">V<sub>i</sub></th>
+                <th nowrap="true">Alternatif</th>
+                <th nowrap="true">Nilai</th>
+                <th nowrap="true">Hasil</th>
+                <th nowrap="true"><i class="fa fa-trophy"></i></th>
               </tr>
             </thead>
             <tbody>
@@ -89,10 +89,10 @@
              
               <?php $jml = 1 ;foreach ($ranking->result() as $rnk): ?>
               <tr>
-                <td nowrap="true"><b>V<sub><?= $rnk->id_alternatif ?></sub></b></td>
-                <td nowrap="true" width="50%"><b><?= $rnk->nama_alternatif?></b></td>
-                <td nowrap="true" width="50%"><b><?= $rnk->hasil ?></b></td>
-                <td nowrap="true" width="50%"><b><?= number_format($rnk->hasil/($jumlah_bobot->bobot/$kriteria->num_rows()), 3) ?></b></td>
+                <td nowrap="true">V<sub><?= $rnk->id_alternatif ?></sub></td>
+                <td nowrap="true" width="50%"><?= $rnk->nama_alternatif?></td>
+                <td nowrap="true" width="50%"><?= $rnk->hasil ?></td>
+                <td nowrap="true" width="50%"><?= number_format($rnk->hasil/($jumlah_bobot->bobot/$kriteria->num_rows()), 3) ?></td>
                 <td nowrap="true"><?= $jml++ ?></td>
                 <!-- <td nowrap="true" width="50%"><b><?= number_format($rnk->hasil/$ranking->num_rows(),3) ?></b></td> -->
               </tr>

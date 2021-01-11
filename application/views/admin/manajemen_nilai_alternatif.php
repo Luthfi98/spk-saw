@@ -7,29 +7,33 @@
     </header>
     <div class="panel-body">
       <table width="100%" class="table table-responsive table-bordered" id="dt-akun">
-        <thead>
+        <tbody>
           <tr>
-            <td class="text-center">
+            <th class="text-center">
               #
-            </td>
+            </th>
             <?php $bbt = 0; foreach ($kriteria->result() as $k): $bbt = $bbt + $k->bobot ?>
-            <td class="text-center"><?= $k->nama_kriteria ?><br>(<?= $k->bobot ?>)</td>
+            <th class="text-center"><?= $k->nama_kriteria ?></th>
+            <?php endforeach ?>
+            <?php foreach ($kriteria->result() as $a): ?>
+              <?php $normalisasi = $a->bobot/$bbt ?>
+              <?php $this->db->where('id', $a->id); $this->db->update('kriteria', ['normalisasi_bobot' => $normalisasi ] ) ?>
             <?php endforeach ?>
           </tr>
-        </thead>
+        </tbody>
         <tbody>
           <form id="form-nilai">
           <?php  foreach ($alternatif->result() as $alt):  ?>
             <tr>
-              <td nowrap="true"><?= $alt->nama_alternatif ?></td>
+              <th nowrap="true"><?= $alt->nama_alternatif ?></th>
               <?php foreach ($kriteria->result() as $kr): ?>
                 <td width="20%" class="text-center">
                   <?php foreach ($nilai as $n): ?>
                     <?php if ($n->baris == $alt->id && $n->kolom == $kr->id): ?>
-                      <div class="form-group">
+                      <!-- <div class="form-group"> -->
                         <input type="hidden" name="id[]" id="id" value="<?= $n->id_nilai ?>">
                         <input type="text" style="width: 100%" class="form-control nilai text-center" value="<?= $n->nilai ?>" name="nilai[]">
-                      </div>
+                      <!-- </div> -->
                       <?php else: ?>
                     <?php endif ?>
                   <?php endforeach ?>
@@ -37,10 +41,20 @@
               <?php endforeach ?>
             </tr>
           <?php endforeach ?>
-          <?php foreach ($kriteria->result() as $a): ?>
-            <?php $normalisasi = $a->bobot/$bbt ?>
-            <?php $this->db->where('id', $a->id); $this->db->update('kriteria', ['normalisasi_bobot' => $normalisasi ] ) ?>
-          <?php endforeach ?>
+          <tr>
+            <th>Bobot</th>
+            <?php foreach ($kriteria->result() as $krt): ?>
+              <td class="text-center" style="vertical-align: middle;"><?= $krt->bobot ?></td>
+            <?php endforeach ?>
+            <td class="text-center" style="vertical-align: middle;"><?php $jml_bobot = $this->db->select_sum('bobot')->get('kriteria')->row(); echo $jml_bobot->bobot;  ?></td>
+          </tr>
+          <tr>
+            <th>Bobot Ternormalisasi</th>
+            <?php foreach ($kriteria->result() as $krt): ?>
+              <td class="text-center" style="vertical-align: middle;"><?= $krt->normalisasi_bobot ?></td>
+            <?php endforeach ?>
+            <td class="text-center" style="vertical-align: middle;"><?php $jml_bobot = $this->db->select_sum('normalisasi_bobot')->get('kriteria')->row(); echo number_format($jml_bobot->normalisasi_bobot);  ?></td>
+          </tr>
           </form>
         </tbody>
       </table>
