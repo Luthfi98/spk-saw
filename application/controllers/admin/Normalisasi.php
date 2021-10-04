@@ -7,7 +7,7 @@ class Normalisasi extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('M_Kriteria');
-		cekLogin();
+		// cekLogin();
 	}
 	public function index()
 	{

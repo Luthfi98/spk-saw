@@ -51,8 +51,8 @@
     <!-- Scripts -->
     <script src="<?= base_url('assets') ?>/global/vendor/breakpoints/breakpoints.js"></script>
     <script>
-    	let base = '<?= base_url() ?>'
       Breakpoints();
+    	let base = '<?= base_url() ?>'
     </script>
 
   </head>
@@ -173,9 +173,10 @@
                 if (username == '' || password == '') {
                     alertWarning('Username atau Password Tidak Boleh Kosong');
                 }else{  
-                    if (captchaWords.val() == '') {
-                        alertWarning('Captcha Belum Diisi')
-                    }else{
+                    // if (captchaWords.val() == '') {
+                    //     alertWarning('Captcha Belum Diisi')
+                    // }else{
+                    // }
                         $.ajax({
                             url:base+'cekLogin',
                             data:$('#form').serialize(),
@@ -191,7 +192,6 @@
                                 }
                             }
                         })
-                    }
 
                 }
             })

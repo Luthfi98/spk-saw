@@ -71,7 +71,7 @@ class Auth extends CI_Controller {
 		$cek = $this->db->get_where('akun', ['username' => $username])->row_array();
 		if ($cek) {
 			if (password_verify($password,$cek['password'])) {
-				if ($this->captchaValidate() == true) {
+				// if ($this->captchaValidate() == true) {
 					$dataupdate = [
 						'last_login' => date('Y-m-d H:i:s')
 					];
@@ -86,9 +86,9 @@ class Auth extends CI_Controller {
 					$this->session->set_userdata($data);
 					$this->M_Akun->editAkun($dataupdate, $cek['id_akun']);
 					$array = ['sukses' => true,'alert' => 'Selamat Datang '.$cek['username']];
-				}else{
-					$array = ['alert' => 'Kode Captcha Tidak Sesuai'];
-				}
+				// }else{
+				// 	$array = ['alert' => 'Kode Captcha Tidak Sesuai'];
+				// }
 			}else{
 				$array = ['alert' => 'Username atau Password Salah'];
 			}
